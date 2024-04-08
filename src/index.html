@@ -15,23 +15,20 @@
   </head>
   <body>
     <section>
-      <div class="container">
+      <div class="search-container">
         <h1>Image Search</h1>
         <form class="search-form">
-          <input type="text" name="search" placeholder="Enter search term..." />
-          <button type="submit">Search</button>
+          <input
+            class="search-input"
+            type="text"
+            name="search"
+            placeholder="Enter search term..."
+          />
+          <button class="search-button" type="submit">Search</button>
         </form>
-        <div class="gallery">
-          <a href="images/image1.jpg"
-            ><img src="images/thumbs/thumb1.jpg" alt="" title=""
-          /></a>
-          <a href="images/image2.jpg"
-            ><img src="images/thumbs/thumb2.jpg" alt="" title="Beautiful Image"
-          /></a>
-        </div>
+        <div class="gallery"></div>
       </div>
       <span class="loader"></span>
-      <img src="./img/javascript.svg" alt="" />
     </section>
     <script type="module" src="./main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
