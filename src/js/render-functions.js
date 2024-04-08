@@ -4,3 +4,6 @@ export function showMessage(message) {
     message: message
   });
 }
+
+export function hideMessage() {
+}
