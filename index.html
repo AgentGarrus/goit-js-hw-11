@@ -15,27 +15,24 @@
     <script type="module" crossorigin src="/goit-js-hw-11/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/vendor-10cb7c31.js">
     <link rel="stylesheet" href="/goit-js-hw-11/assets/vendor-a088063d.css">
-    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-c379bba7.css">
+    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-cf9145fa.css">
   </head>
   <body>
     <section>
-      <div class="container">
+      <div class="search-container">
         <h1>Image Search</h1>
         <form class="search-form">
-          <input type="text" name="search" placeholder="Enter search term..." />
-          <button type="submit">Search</button>
+          <input
+            class="search-input"
+            type="text"
+            name="search"
+            placeholder="Enter search term..."
+          />
+          <button class="search-button" type="submit">Search</button>
         </form>
-        <div class="gallery">
-          <a href="images/image1.jpg"
-            ><img src="images/thumbs/thumb1.jpg" alt="" title=""
-          /></a>
-          <a href="images/image2.jpg"
-            ><img src="images/thumbs/thumb2.jpg" alt="" title="Beautiful Image"
-          /></a>
-        </div>
+        <div class="gallery"></div>
       </div>
       <span class="loader"></span>
-      <img src="/goit-js-hw-11/assets/javascript-8dac5379.svg" alt="" />
     </section>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
