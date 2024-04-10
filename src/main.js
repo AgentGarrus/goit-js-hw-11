@@ -7,6 +7,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const searchForm = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
+const lightbox = new SimpleLightbox('.gallery a', {});
 
 function showLoader() {
   loader.style.display = 'block';
@@ -15,7 +16,9 @@ function hideLoader() {
   loader.style.display = 'none';
 }
 
-searchForm.addEventListener('submit', async (event) => {
+searchForm.addEventListener('submit', onSubmit);
+
+async function onSubmit(event) {
   event.preventDefault();
   
   const query = event.target.search.value.trim();
@@ -27,12 +30,12 @@ searchForm.addEventListener('submit', async (event) => {
   
   try {
     showLoader();
+    gallery.innerHTML = '';
     
     const images = await fetchImages(query);
     if (images.length === 0) {
       showMessage('Sorry, there are no images matching your search query. Please try again!');
     } else {
-      gallery.innerHTML = '';
       renderGallery(images);
     }
   } catch (error) {
@@ -40,19 +43,11 @@ searchForm.addEventListener('submit', async (event) => {
   } finally {
     hideLoader();
   }
-});
+}
 
 function renderGallery(images) {
-  const gallery = document.querySelector('.gallery');
-  gallery.innerHTML = '';
-
-  const fragment = document.createDocumentFragment();
+  const cardsMarkup = images.map(createImageCard).join('');
+  gallery.insertAdjacentHTML('beforeend', cardsMarkup);
   
-  images.forEach(image => {
-    const card = createImageCard(image);
-    gallery.appendChild(card);
-  });
-  
-  const lightbox = new SimpleLightbox('.gallery a', {});
   lightbox.refresh();
 }
